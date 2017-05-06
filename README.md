@@ -5,11 +5,11 @@ Used for validating in-app purchase receipts with Apple
 
 ## Use
 
-- Create a persistent `AppleReceiptValidationService` with either the `.test` or `.production` host.  `.test` == "sandbox".
+1. Create a persistent `AppleReceiptValidationService` with either the `.test` or `.production` host.  `.test` == "sandbox".
 
 	let service:AppleReceiptValidationService = AppleReceiptValidationService(host:.production)
 
-- Obtain the receipt from the app using the `Bundle`'s `.appStoreReceiptURL` property 
+2. Obtain the receipt from the app using the `Bundle`'s `.appStoreReceiptURL` property 
 
 	guard let url:URL = Bundle.main.appStoreReceiptURL
 		,let receiptData:Data = try? Data(contentsOf: url)
@@ -17,7 +17,7 @@ Used for validating in-app purchase receipts with Apple
 			return
 	}
 
-- Create a receipt validation request
+3. Create a receipt validation request
 
 let request = ReceiptValidationRequest(receiptData:receiptData)
 
@@ -27,7 +27,7 @@ If you intend to validate an auto-renewable subscription, include the shared sec
 
 	let request = ReceiptValidationRequest(receiptData:receiptData, sharedSecret:"i4u65cni534m57xo84")
 
-- Get a task object 
+4. Get a task object 
 
 	let task:Cancellable = service.validate(request:request) { responseOrNil in
 		guard let response = responseOrNil else {

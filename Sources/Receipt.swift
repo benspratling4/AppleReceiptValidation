@@ -3,7 +3,7 @@ import Foundation
 public struct AppReceipt {
 	public let bundleIdentifier:String
 	public let appVersion:String
-	public let creationDate:Date
+	public let creationDate:Date?
 	public let receiptExpirationDate:Date?
 	public let originalAppVersion:String?
 	public let inApp:[InAppReceipt]
@@ -11,14 +11,12 @@ public struct AppReceipt {
 	public init?(json:[String:Any]) {
 		guard let bundleID:String = json["bundle_id"] as? String
 		,let appVersion:String = json["application_version"] as? String
-		,let creationDateString:String = json["creation_date"] as? String
-		,let creationDate = InAppReceipt.rfc3339Date(creationDateString)
 			else {
 				return nil
 		}
 		self.bundleIdentifier = bundleID
 		self.appVersion = appVersion
-		self.creationDate = creationDate
+		creationDate = (json["creation_date"] as? String).flatMap(InAppReceipt.rfc3339Date)
 		
 		receiptExpirationDate = (json["expiration_date"] as? String).flatMap(InAppReceipt.rfc3339Date)
 		inApp = (json["in_app"] as? [[String:Any]] ?? []).flatMap(InAppReceipt.init(json:))

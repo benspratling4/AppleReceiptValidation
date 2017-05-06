@@ -4,7 +4,7 @@ public struct ReceiptValidationResponse {
 	
 	public let status:ReceiptStatus
 	
-	public let receipt:InAppReceipt?
+	public let receipt:AppReceipt?
 	
 	public let latestReceiptData:Data?
 	
@@ -15,7 +15,7 @@ public struct ReceiptValidationResponse {
 			,let status = ReceiptStatus(rawValue:statusInt)
 			else { return nil }
 		self.status = status
-		receipt = (json["receipt"] as? [String:Any]).flatMap{InAppReceipt(json:$0)}
+		receipt = (json["receipt"] as? [String:Any]).flatMap{AppReceipt(json:$0)}
 		latestReceipts = (json["latest_receipt_info"] as? [[String:Any]])?.flatMap{InAppReceipt(json:$0)} ?? []
 		latestReceiptData = (json["latest_receipt"] as? String).flatMap({ (base64String) -> Data? in
 			return Data(base64Encoded: base64String)
