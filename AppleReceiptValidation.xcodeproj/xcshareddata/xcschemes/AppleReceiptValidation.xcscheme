@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "OBJ_17"
+               BlueprintIdentifier = "OBJ_20"
                BuildableName = "AppleReceiptValidation.framework"
                BlueprintName = "AppleReceiptValidation"
                ReferencedContainer = "container:AppleReceiptValidation.xcodeproj">
@@ -28,6 +28,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "OBJ_30"
+               BuildableName = "AppleReceiptValidationTests.xctest"
+               BlueprintName = "AppleReceiptValidationTests"
+               ReferencedContainer = "container:AppleReceiptValidation.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <AdditionalOptions>
       </AdditionalOptions>
@@ -45,7 +55,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "OBJ_17"
+            BlueprintIdentifier = "OBJ_20"
             BuildableName = "AppleReceiptValidation.framework"
             BlueprintName = "AppleReceiptValidation"
             ReferencedContainer = "container:AppleReceiptValidation.xcodeproj">

@@ -17,7 +17,7 @@ public class AppleReceiptValidationService : ReceiptValidationService {
 	
 	public let host:Host
 	
-	private let urlSession:URLSession = URLSession(configuration: URLSessionConfiguration())
+	private let urlSession:URLSession = URLSession(configuration: .default)
 	
 	public init(host:Host) {
 		self.host = host
@@ -58,6 +58,7 @@ public class AppleReceiptValidationService : ReceiptValidationService {
 					completion(nil)
 					return
 			}
+			print(json)
 			completion(ReceiptValidationResponse(json:jsonDict))
 		})
 		task.resume()
