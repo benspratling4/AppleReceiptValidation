@@ -58,7 +58,7 @@ public class AppleReceiptValidationService : ReceiptValidationService {
 					completion(nil)
 					return
 			}
-			print(json)
+			//print(json)
 			completion(ReceiptValidationResponse(json:jsonDict))
 		})
 		task.resume()
